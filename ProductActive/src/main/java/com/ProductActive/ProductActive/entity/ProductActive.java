@@ -45,9 +45,9 @@ public class ProductActive {
     @Size(min = 0, max = 50)
     @Column(nullable = false, length = 50)
     private String holder;
-    @NotEmpty
+
     @Size(min = 0, max = 50)
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     private String signatory;
     @NotNull
     @DecimalMax("10000000.00") @DecimalMin("0.0")
