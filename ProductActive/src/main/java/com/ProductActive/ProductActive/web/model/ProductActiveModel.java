@@ -27,6 +27,8 @@ public class ProductActiveModel {
     private Double limitAmount;
     @NotBlank(message="document cannot be null or empty")
     private String document;
+    @NotBlank(message="typeCredit cannot be null or empty")
+    private String typeCredit;
     @NotBlank(message="holder cannot be null or empty")
     private String holder;
     @NotBlank(message="signatory cannot be null or empty")
