@@ -6,4 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface ProductActiveRepository extends ReactiveMongoRepository<ProductActive, String> {
     Mono<ProductActive> findByIdentityContract(String identityContract);
+
+    Mono<ProductActive> findByTypeCreditAndDocument(String typeCredit, String document);
 }

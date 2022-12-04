@@ -38,12 +38,15 @@ public class ProductActive {
     @Column(nullable = false, length = 11)
     private String document;
     @NotEmpty
-    @Size(min = 0, max = 50)
-    @Column(nullable = false, length = 50)
-    private String holder;
+    @Size(min = 0, max = 20)
+    @Column(nullable = false, length = 20)
+    private String typeCredit;
     @NotEmpty
     @Size(min = 0, max = 50)
     @Column(nullable = false, length = 50)
+    private String holder;
+    @Size(min = 0, max = 50)
+    @Column(length = 50)
     private String signatory;
     @NotNull
     @DecimalMax("10000000.00") @DecimalMin("0.0")
