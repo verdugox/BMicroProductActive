@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ProductActiveModel {
 
-    @JsonIgnore
+   
     private String id;
     @NotBlank(message="Contract Number cannot be null or empty")
     private String identityContract;
