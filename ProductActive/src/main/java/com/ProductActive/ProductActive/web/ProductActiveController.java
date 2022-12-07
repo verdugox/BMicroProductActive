@@ -55,6 +55,16 @@ public class ProductActiveController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/findByIdentityContract/{identityContract}")
+    public Mono<ResponseEntity<ProductActiveModel>> findByIdentityContract(@PathVariable String identityContract){
+        log.info("findByIdentityContract executed {}", identityContract);
+        Mono<ProductActive> response = productActiveService.findByIdentityContract(identityContract);
+        return response
+                .map(productActive -> productActiveMapper.entityToModel(productActive))
+                .map(ResponseEntity::ok)
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public Mono<ResponseEntity<ProductActiveModel>> create(@Valid @RequestBody ProductActiveModel request){
         log.info("create executed {}", request);

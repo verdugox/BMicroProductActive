@@ -67,6 +67,11 @@ public class ProductActiveService {
         return productActiveRepository.findById(productActiveId);
     }
 
+    public Mono<ProductActive> findByIdentityContract(String identityContract){
+        log.debug("findByIdentityContract executed {}" , identityContract);
+        return productActiveRepository.findByIdentityContract(identityContract);
+    }
+
     public Mono<ProductActive> findByTypeCreditAndDocument(String typeCredit, String document){
         log.debug("findByTypeCreditAndDocument executed {}" , typeCredit, document);
         return productActiveRepository.findByTypeCreditAndDocument(typeCredit, document);
