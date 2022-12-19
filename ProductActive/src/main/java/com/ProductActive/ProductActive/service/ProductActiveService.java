@@ -89,6 +89,9 @@ public class ProductActiveService {
                                     if(account1.getTypeCredit().equals("PERSONAL")){
                                         return Mono.error(new Exception("No puede realizar más de un registro Personal."));
                                     }
+                                    else if(account1.getTypeCredit().equals("PYME")){
+                                        return Mono.error(new Exception("El cliente debe tener una tarjeta de crédito asociado al banco"));
+                                    }
                                     else{
                                         return productActiveRepository.save(productActive);
                                     }
