@@ -35,6 +35,7 @@ public class ProductActiveService {
 
 
     private final String BASE_URL = "http://localhost:9040";
+    private final String BASE_URL_AZURE = "https://spring-azure-github-laar.azurewebsites.net";
 
     TcpClient tcpClient = TcpClient.create()
             .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
@@ -42,7 +43,7 @@ public class ProductActiveService {
                     connection.addHandlerLast(new ReadTimeoutHandler(3))
                             .addHandlerLast(new WriteTimeoutHandler(3)));
     private final WebClient client = WebClient.builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BASE_URL_AZURE)
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
             .defaultHeader(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE)
             .clientConnector(new ReactorClientHttpConnector(HttpClient.from(tcpClient)))  // timeout
